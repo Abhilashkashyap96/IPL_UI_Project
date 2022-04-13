@@ -1,34 +1,17 @@
-import React, { Component, Suspense } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import './scss/style.scss'
+import React from "react";
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import NavbarComp from "./Components/NavbarComp";
+import Home from "./Components/Home";
+// import { BrowserRouter as Router } from "react-router-dom";
 
-const loading = (
-  <div className="pt-3 text-center">
-    <div className="sk-spinner sk-spinner-pulse"></div>
-  </div>
-)
-
-// Containers
-const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
-
-// Pages
-const Login = React.lazy(() => import('./views/pages/login/Login'))
-const Register = React.lazy(() => import('./views/pages/register/Register'))
-
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Suspense fallback={loading}>
-          <Routes>
-            <Route exact path="/login" name="Login Page" element={<Login />} />
-            <Route exact path="/register" name="Register Page" element={<Register />} />
-            <Route path="*" name="Home" element={<DefaultLayout />} />
-          </Routes>
-        </Suspense>
-      </Router>
-    )
-  }
+function App() {
+  return (
+      <div className="App container">
+        <NavbarComp />
+        <Home />
+      </div>
+  );
 }
 
-export default App
+export default App;
