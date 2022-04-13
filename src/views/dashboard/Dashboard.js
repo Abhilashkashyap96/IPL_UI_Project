@@ -38,8 +38,6 @@ import {
   cifPl,
   cifUs,
   cibTwitter,
-  cilCloudDownload,
-  cilPeople,
   cilUser,
   cilUserFemale,
 } from '@coreui/icons'

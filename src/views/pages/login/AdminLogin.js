@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -16,8 +16,14 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
-const Login = () => {
-  
+
+const AdminLogin = () => {
+  let navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/admin-home-page',{replace: true})
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -27,7 +33,7 @@ const Login = () => {
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
-                    <h1>Login</h1>
+                    <h1>Login As Admin</h1>
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
@@ -47,11 +53,9 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <Link to={"/dashboard"}>
-                        <CButton  color="primary" className="px-4">
+                        <CButton onClick={handleLogin} color="primary" className="px-4">
                           Login
                         </CButton>
-                        </Link>
                       </CCol>
                       <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">
@@ -85,4 +89,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default AdminLogin

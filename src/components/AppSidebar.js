@@ -31,26 +31,7 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex align-item-center" to="/dashboard">
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexFlow: 'column',
-            border: '2px solid white',
-            padding: '5px',
-            margin: '10px',
-            borderRadius: '10px',
-            cursor:'pointer'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Icon className="big-icon" icon="mdi:cricket" />
-            <h3 style={{ marginLeft: '10px' }}>IPL</h3>
-          </div>
-          <div>
-            <p>Fantacy League</p>
-          </div>
-        </div>
+          IPL <Icon icon="bxs:cricket-ball" /> Fantacy
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
