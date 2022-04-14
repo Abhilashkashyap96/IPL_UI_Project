@@ -1,12 +1,12 @@
 import React from 'react'
-import { AppContent, AppSidebar, AppFooter, AppHeader } from '../Components/index'
+import { AppContent, UserAppSidebar, AppFooter, UserAppHeader } from '../Components/index'
 
 function UserHomePage() {
   return (
     <div>
-    <AppSidebar />
+    <UserAppSidebar />
     <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-      <AppHeader />
+      <UserAppHeader />
       <div className="body flex-grow-1 px-3">
         {/* <AppContent /> */}
       </div>
