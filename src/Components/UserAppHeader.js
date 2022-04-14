@@ -10,15 +10,16 @@ import {
   CHeaderToggler,
   CNavLink,
   CNavItem,
+  CButton
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilBell, cilEnvelopeOpen, cilList, cilMenu } from '@coreui/icons'
 
 import { AppBreadcrumb } from './index'
-import { AppHeaderDropdown }  from './header/index'
+// import { AppHeaderDropdown }  from './header/index'
 import { logo } from 'src/assets/brand/logo'
 
-const AppHeader = () => {
+const UserAppHeader = () => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
 
@@ -42,11 +43,13 @@ const AppHeader = () => {
           </CNavItem>
         </CHeaderNav>
         <CHeaderNav className="ms-3">
-          <AppHeaderDropdown />
+          <h4>Welcome User</h4>
+          {/* <AppHeaderDropdown /> */}
+          <CButton color="secondary" variant="outline">Logout</CButton>
         </CHeaderNav>
       </CContainer>
     </CHeader>
   )
 }
 
-export default AppHeader
+export default UserAppHeader
