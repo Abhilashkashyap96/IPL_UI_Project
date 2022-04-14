@@ -16,7 +16,7 @@ import 'simplebar/dist/simplebar.min.css'
 // sidebar nav config
 import navigation from '../admin_nav'
 
-const AdminAppSidebar = () => {
+const AdminSidebar = () => {
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
@@ -42,4 +42,4 @@ const AdminAppSidebar = () => {
   )
 }
 
-export default React.memo(AdminAppSidebar)
+export default AdminSidebar

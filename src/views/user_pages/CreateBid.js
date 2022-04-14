@@ -1,8 +1,17 @@
 import React from 'react'
+import { UserAppContent, UserAppSidebar, AppFooter, UserAppHeader } from '../../Components/index'
 
 const CreateBid = () => {
   return (
-    <h1>Create Bid</h1>
+    <div>
+    <UserAppSidebar />
+    <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+      <UserAppHeader />
+      <div className="body px-3">
+      </div>
+         <h1>Create Bid</h1>
+    </div>
+  </div>
   )
 }
 

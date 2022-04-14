@@ -42,4 +42,4 @@ const UserAppSidebar = () => {
   )
 }
 
-export default React.memo(UserAppSidebar)
+export default UserAppSidebar
