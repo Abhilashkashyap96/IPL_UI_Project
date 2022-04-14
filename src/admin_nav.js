@@ -14,10 +14,10 @@ import {
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
-const _nav = [{
+const admin_nav = [{
     component: CNavItem,
-    name: 'Dashboard',
-    to: '/dashboard'
-}, ]
+    name: 'Create Tournament',
+    to: '/match-schedule'
+}]
 
-export default _nav
+export default admin_nav
