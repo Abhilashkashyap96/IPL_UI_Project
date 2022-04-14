@@ -15,14 +15,15 @@ import {
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const user_nav = [{
-        component: CNavItem,
-        name: 'Cancel Bid',
-        to: '/cancel-bid'
-    },
-    {
+
         component: CNavItem,
         name: 'Create Bid',
         to: '/create-bid'
+    },
+    {
+        component: CNavItem,
+        name: 'Cancel Bid',
+        to: '/cancel-bid'
     },
     {
         component: CNavItem,
