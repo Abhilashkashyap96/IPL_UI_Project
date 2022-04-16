@@ -1,20 +1,26 @@
 import AppBreadcrumb from './AppBreadcrumb'
-import AppContent from './AppContent'
+import AdminAppContent from './AdminAppContent'
+import UserAppContent from './UserAppContent'
 import AppFooter from './AppFooter'
-import AppHeader from './AppHeader'
-import AppHeaderDropdown from './header/AppHeaderDropdown'
-import AppSidebar from './AppSidebar'
+import AdminAppHeader from './AdminAppHeader'
+import UserAppHeader from './UserAppHeader'
+// import AdminAddHeaderDropdown from './header/AdminAddHeaderDropdown'
+import UserAppSidebar from './UserAppSidebar'
+import AdminSidebar from './AdminSidebar'
 import DocsCallout from './DocsCallout'
 import DocsLink from './DocsLink'
 import DocsExample from './DocsExample'
 
 export {
     AppBreadcrumb,
-    AppContent,
+    AdminAppContent,
+    UserAppContent,
     AppFooter,
-    AppHeader,
-    AppHeaderDropdown,
-    AppSidebar,
+    AdminAppHeader,
+    UserAppHeader,
+    // AdminAddHeaderDropdown,
+    UserAppSidebar,
+    AdminSidebar,
     DocsCallout,
     DocsLink,
     DocsExample,
