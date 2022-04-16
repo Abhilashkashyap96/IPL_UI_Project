@@ -21,7 +21,7 @@ const AdminLogin = () => {
   let navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate('/admin-home-page',{replace: true})
+    navigate('/create-tournament',{replace: true})
   }
 
   return (
