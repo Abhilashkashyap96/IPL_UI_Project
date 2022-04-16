@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -17,6 +17,11 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const UserLogin = () => {
+  let navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/create-bid',{replace: true})
+  }
   
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -47,11 +52,11 @@ const UserLogin = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <Link to={"/user-home-page"}>
-                        <CButton  color="primary" className="px-4">
+                        {/* <Link to={"/user-home-page"}> */}
+                        <CButton onClick={handleLogin} color="primary" className="px-4">
                           Login
                         </CButton>
-                        </Link>
+                        {/* </Link> */}
                       </CCol>
                       <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">

@@ -1,14 +1,14 @@
 import React from 'react'
-import { AppContent, AppSidebar, AppFooter, AppHeader } from '../Components/index'
+import { AdminAppHeader, AdminAppContent, AdminSidebar } from '../Components/index'
 
 function AdminHomePage() {
   return (
     <div>
-    <AppSidebar />
+    <AdminSidebar />
     <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-      <AppHeader />
+      <AdminAppHeader />
       <div className="body flex-grow-1 px-3">
-        {/* <AppContent /> */}
+        {/* <AdminAppContent /> */}
       </div>
       {/* <AppFooter /> */}
     </div>
