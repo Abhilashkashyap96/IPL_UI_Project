@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
   CButton,
@@ -19,9 +19,52 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const AdminLogin = () => {
   let navigate = useNavigate();
+  const [validation, setValidation] = useState(false)
+  const username = useRef();
+  const password = useRef();
+
+  useEffect(() => {
+    if(localStorage.getItem('adminInfo')){
+      navigate('/create-tournament', { replace: true })
+    }
+  },[])
 
   const handleLogin = () => {
-    navigate('/create-tournament',{replace: true})
+    let data = {
+      username: username.current.value,
+      password: password.current.value
+    }
+    
+    if(data.username === "" && data.password === ""){
+      setValidation(true);
+      return
+    }else if(data.username === "" || data.password === ""){
+      setValidation(true);
+      return
+    }
+
+    let payload = JSON.stringify({
+      username: data.username,
+      password: data.password
+    })
+    fetch("http://localhost:8080/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: payload,
+    }).then((response) => {
+      if (response.ok) {
+        localStorage.setItem('adminInfo',payload)
+        navigate('/create-tournament',{replace: true})
+      } else if (response.status === 404) {
+        setValidation(true)
+      }
+    });
+  }
+
+  const handleRegister = () => {
+    navigate('/admin-register',{replace: true})
   }
 
   return (
@@ -29,6 +72,10 @@ const AdminLogin = () => {
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
+          {validation && <div className="alert alert-danger" role="alert">
+              Invalid Login credentials!! Please Try Again.
+            </div>
+            }
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
@@ -39,16 +86,23 @@ const AdminLogin = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput 
+                      name='username'
+                      placeholder="Username" 
+                      autoComplete="username" 
+                      ref={username}
+                      />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
-                      <CFormInput
+                      <CFormInput 
+                        name='password'
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
+                        ref={password}
                       />
                     </CInputGroup>
                     <CRow>
@@ -73,11 +127,11 @@ const AdminLogin = () => {
                     <p>
                     We’re lighting up the night with IPL fever. Which team are you rooting for?
                     </p>
-                    <Link to="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
+                    {/* <Link to="/admin-register"> */}
+                      <CButton onClick={handleRegister} color="primary" className="mt-3" active tabIndex={-1}>
                         Register Now!
                       </CButton>
-                    </Link>
+                    {/* </Link> */}
                   </div>
                 </CCardBody>
               </CCard>
