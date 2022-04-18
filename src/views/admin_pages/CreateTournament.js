@@ -14,14 +14,21 @@ const CreateTournament = () => {
           <CCardBody>
               <h1>Create Tournament</h1>
               <CFormLabel >Select Match</CFormLabel>
-              <CDropdown style={{width:'100%'}}>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              {/* <CDropdown style={{width:'100%'}}>
                 <CDropdownToggle color="secondary">Nothing Selected</CDropdownToggle>
-                <CDropdownMenu>
+                <CDropdownMenu style={{width:'100%'}}>
                   <CDropdownItem href="#">Action</CDropdownItem>
                   <CDropdownItem href="#">Another action</CDropdownItem>
                   <CDropdownItem href="#">Something else here</CDropdownItem>
                 </CDropdownMenu>
-              </CDropdown>
+              </CDropdown> */}
 
               <CFormLabel >Number of Teams</CFormLabel>
               <CInputGroup className="mb-3">

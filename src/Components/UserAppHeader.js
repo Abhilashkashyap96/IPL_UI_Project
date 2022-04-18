@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {
   CContainer,
   CHeader,
@@ -13,15 +14,20 @@ import {
   CButton
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilBell, cilEnvelopeOpen, cilList, cilMenu } from '@coreui/icons'
+import {  cilMenu } from '@coreui/icons'
 
-import { AppBreadcrumb } from './index'
-// import { AppHeaderDropdown }  from './header/index'
 import { logo } from 'src/assets/brand/logo'
 
 const UserAppHeader = () => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
+  let localData = JSON.parse(localStorage.getItem('userInfo'))
+  let navigate = useNavigate();
+
+  const logOut = () => {
+    localStorage.clear()
+    navigate('/user-login', { replace: true })
+  }
 
   return (
     <CHeader position="sticky" className="mb-4">
@@ -42,11 +48,10 @@ const UserAppHeader = () => {
             </CNavLink>
           </CNavItem>
         </CHeaderNav>
-        <CHeaderNav className="ms-3">
-          <h4>Welcome User</h4>
-          {/* <AppHeaderDropdown /> */}
-          <CButton color="secondary" variant="outline">Logout</CButton>
+        <CHeaderNav className="me-5">
+          <h5  className='me-3'>Welcome {localData.username}</h5>
         </CHeaderNav>
+          <CButton color="secondary" onClick={logOut} className='btn-sm' variant="outline">Logout</CButton>
       </CContainer>
     </CHeader>
   )

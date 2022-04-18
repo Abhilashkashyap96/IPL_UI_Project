@@ -22,11 +22,6 @@ const user_nav = [{
     },
     {
         component: CNavItem,
-        name: 'Cancel Bid',
-        to: '/cancel-bid'
-    },
-    {
-        component: CNavItem,
         name: 'Match Details',
         to: '/match-details'
     },
