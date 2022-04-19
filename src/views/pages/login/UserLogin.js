@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CButton,
@@ -14,24 +14,40 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser, CAlert } from '@coreui/icons'
-import { useForm } from "react-hook-form";
 
 const UserLogin = () => {
   let navigate = useNavigate();
   const [validation, setValidation] = useState(false)
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const username = useRef();
+  const password = useRef();
+
 
   useEffect(() => {
     if(localStorage.getItem('userInfo')){
-      navigate('/create-bid', { replace: true })
+      navigate('/team-leader-board', { replace: true })
     }
   },[])
 
-  const manageLogin = (data) => {
+  const manageLogin = () => {
+    let data = {
+      username: username.current.value,
+      password: password.current.value
+    }
+    
+
+    if(data.username === "" || data.password === ""){
+      setValidation(true);
+      return
+    }else if(data.username === "" && data.password === ""){
+      setValidation(true);
+      return
+    }
+
     let payload = JSON.stringify({
       username: data.username,
       password: data.password
     })
+
     fetch("http://localhost:8080/user/login", {
       method: "POST",
       headers: {
@@ -41,7 +57,7 @@ const UserLogin = () => {
     }).then((response) => {
       if (response.ok) {
         localStorage.setItem('userInfo',payload)
-        navigate('/create-bid', { replace: true })
+        navigate('/team-leader-board', { replace: true })
       } else if (response.status === 404) {
         setValidation(true)
       }
@@ -51,6 +67,10 @@ const UserLogin = () => {
 
   const manageRegister = () => {
     navigate('/user-register', { replace: true })
+  }
+
+  const onChange = () => {
+    setValidation(false)
   }
 
   return (
@@ -65,7 +85,7 @@ const UserLogin = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <form onSubmit={handleSubmit(manageLogin)}>
+                  <form>
                     <h1>Login As User</h1>
                     <p className="text-medium-emphasis">Sign In to your account</p>
 
@@ -74,10 +94,11 @@ const UserLogin = () => {
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
                       <CFormInput
+                        onChange={onChange}
                         name="username"
                         placeholder="Username"
                         autoComplete="username"
-                        {...register("username", { required: true })}
+                        ref={username}
                       />
                     </CInputGroup>
 
@@ -86,17 +107,18 @@ const UserLogin = () => {
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
                       <CFormInput
+                        onChange={onChange}
                         name="password"
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
-                        {...register("password", { required: true })}
+                        ref={password}
                       />
                     </CInputGroup>
 
                     <CRow>
                       <CCol xs={6}>
-                        <CButton type='submit' onClick={manageLogin} color="primary" className="px-4">
+                        <CButton type='button' onClick={manageLogin} color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
