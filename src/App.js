@@ -2,6 +2,7 @@ import React, { Component, Suspense, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { MatchDetailsContext } from './utilitis/Context'
 import './scss/style.scss'
+import './App.css'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -26,9 +27,9 @@ const CreateBid = React.lazy(() => import('./views/user_pages/CreateBid'))
 const MatchDetails = React.lazy(() => import('./views/user_pages/MatchDetails'))
 const MatchSchedule = React.lazy(() => import('./views/user_pages/MatchSchedule'))
 const TeamLeaderBoard = React.lazy(() => import('./views/user_pages/TeamLeaderBoard'))
+const TeamDetails = React.lazy(() => import('./views/user_pages/TeamDetails'))
 
 // Admin Pages
-const CreateTournament = React.lazy(() => import('./views/admin_pages/CreateTournament'))
 const CreateTeams = React.lazy(() => import('./views/admin_pages/CreateTeams'))
 const ScheduleMatch = React.lazy(() => import('./views/admin_pages/ScheduleMatch'))
 const AddResult = React.lazy(() => import('./views/admin_pages/AddResult'))
@@ -36,18 +37,13 @@ const BiddingList = React.lazy(() => import('./views/admin_pages/BiddingList'))
 
 const App = () => {
 
-  const [update, setUpdate] = useState({
-    team_1_id: "",
-    team_2_id: "",
-    match_date: "",
-    match_time: ""
-  })
+  const [updateTeamId, setUpdateTeamId] = useState([])
 
     return (
       <MatchDetailsContext.Provider 
       value={{
-        update,
-        setUpdate
+        updateTeamId,
+        setUpdateTeamId
         }}>
       <Router>
         <Suspense fallback={loading}>
@@ -68,9 +64,9 @@ const App = () => {
             <Route exact path="/match-details" name="Match Details" element={<MatchDetails />} />
             <Route exact path="/match-schedule" name="Match Schedule" element={<MatchSchedule />} />
             <Route exact path="/team-leader-board" name="Team Leader Board" element={<TeamLeaderBoard />} />
+            <Route exact path="/team-details" name="Team Leader Board" element={<TeamDetails />} />
 
             {/* Admin Pages */}
-            <Route exact path="/create-tournament" name="Create Tournament" element={<CreateTournament />} />
             <Route exact path="/create-teams" name="Create Teams" element={<CreateTeams />} />
             <Route exact path="/schedule-match" name="ScheduleMatch" element={<ScheduleMatch />} />
             <Route exact path="/add-result" name="Add Result" element={<AddResult />} />

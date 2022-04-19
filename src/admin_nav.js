@@ -1,10 +1,6 @@
 import { CNavItem, } from '@coreui/react'
 
-const admin_nav = [{
-        component: CNavItem,
-        name: 'Create Tournament',
-        to: '/create-tournament'
-    },
+const admin_nav = [
     {
         component: CNavItem,
         name: 'Create Teams',

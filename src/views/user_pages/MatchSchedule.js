@@ -13,6 +13,7 @@ const MatchSchedule = () => {
     }).then((response) => {
       if (response.ok) {
         response.json().then((result) => {
+          console.log(result)
           setData(result)
         })
       }

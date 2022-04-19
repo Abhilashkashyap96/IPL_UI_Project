@@ -25,7 +25,7 @@ const AdminLogin = () => {
 
   useEffect(() => {
     if(localStorage.getItem('adminInfo')){
-      navigate('/create-tournament', { replace: true })
+      navigate('/create-teams', { replace: true })
     }
   },[])
 
@@ -56,7 +56,7 @@ const AdminLogin = () => {
     }).then((response) => {
       if (response.ok) {
         localStorage.setItem('adminInfo',payload)
-        navigate('/create-tournament',{replace: true})
+        navigate('/create-teams',{replace: true})
       } else if (response.status === 404) {
         setValidation(true)
       }

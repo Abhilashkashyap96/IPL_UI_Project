@@ -4021,7 +4021,7 @@
     "lodash" "^4.17.21"
     "string-natural-compare" "^3.0.1"
 
-"eslint-plugin-import@^2.25.3":
+"eslint-plugin-import@^2.25.3", "eslint-plugin-import@^2.26.0":
   "integrity" "sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.26.0.tgz"
   "version" "2.26.0"
@@ -4077,7 +4077,7 @@
   "resolved" "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.4.0.tgz"
   "version" "4.4.0"
 
-"eslint-plugin-react@^7.27.1":
+"eslint-plugin-react@^7.27.1", "eslint-plugin-react@^7.29.4":
   "integrity" "sha512-CVCXajliVh509PcZYRFyu/BoUEz452+jtQJq2b3Bae4v3xBUWPLCmtmBM+ZinG4MzwmxJgJ2M5rMqhqLVn7MtQ=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.29.4.tgz"
   "version" "7.29.4"
@@ -4153,7 +4153,7 @@
     "normalize-path" "^3.0.0"
     "schema-utils" "^3.1.1"
 
-"eslint@*", "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8", "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8", "eslint@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0", "eslint@^6.0.0 || ^7.0.0 || ^8.0.0", "eslint@^7.0.0 || ^8.0.0", "eslint@^7.5.0 || ^8.0.0", "eslint@^8.0.0", "eslint@^8.1.0", "eslint@^8.3.0", "eslint@>= 6", "eslint@>=5", "eslint@>=7.0.0", "eslint@>=7.28.0":
+"eslint@*", "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8", "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8", "eslint@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0", "eslint@^6.0.0 || ^7.0.0 || ^8.0.0", "eslint@^7.0.0 || ^8.0.0", "eslint@^7.5.0 || ^8.0.0", "eslint@^8.0.0", "eslint@^8.1.0", "eslint@^8.13.0", "eslint@^8.3.0", "eslint@>= 6", "eslint@>=5", "eslint@>=7.0.0", "eslint@>=7.28.0":
   "integrity" "sha512-D+Xei61eInqauAyTJ6C0q6x9mx7kTUC1KZ0m0LSEexR0V+e94K12LmWX076ZIsldwfQ2RONdaJe0re0TRGQbRQ=="
   "resolved" "https://registry.npmjs.org/eslint/-/eslint-8.13.0.tgz"
   "version" "8.13.0"
@@ -4227,17 +4227,7 @@
   "resolved" "https://registry.npmjs.org/estraverse/-/estraverse-4.3.0.tgz"
   "version" "4.3.0"
 
-"estraverse@^5.1.0":
-  "integrity" "sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA=="
-  "resolved" "https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz"
-  "version" "5.3.0"
-
-"estraverse@^5.2.0":
-  "integrity" "sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA=="
-  "resolved" "https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz"
-  "version" "5.3.0"
-
-"estraverse@^5.3.0":
+"estraverse@^5.1.0", "estraverse@^5.2.0", "estraverse@^5.3.0":
   "integrity" "sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA=="
   "resolved" "https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz"
   "version" "5.3.0"
@@ -7232,7 +7222,7 @@
   dependencies:
     "fast-diff" "^1.1.2"
 
-"prettier@>=2.0.0", "prettier@2.5.1":
+"prettier@^2.5.1", "prettier@>=2.0.0":
   "integrity" "sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg=="
   "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz"
   "version" "2.5.1"
@@ -8665,7 +8655,7 @@
   dependencies:
     "is-typedarray" "^1.0.0"
 
-"typescript@^3.2.1 || ^4", "typescript@>= 2.7", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
+"typescript@^3.2.1 || ^4", "typescript@^4.6.3", "typescript@>= 2.7", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
   "integrity" "sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.6.3.tgz"
   "version" "4.6.3"

@@ -26,6 +26,19 @@ const AdminRegister = () => {
       username: username.current.value,
       password: password.current.value
     }
+
+    if (data.username === ""
+      || data.password === ""
+    ) {
+      setValidation(true);
+      return
+    } else if (data.username === ""
+      && data.password === ""
+    ) {
+      setValidation(true);
+      return
+    }
+
     fetch("http://localhost:8080/admin/register", {
       method: "POST",
       headers: {
@@ -38,21 +51,26 @@ const AdminRegister = () => {
     }).then((response) => {
       if (response.ok) {
         navigate("/admin-login", { replace: true })
-      } else{
+      } else {
         setValidation(true)
       }
     });
   }
+
+  const onChange = () => {
+    setValidation(false)
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={9} lg={7} xl={6}>
-            {validation && <div className="alert alert-danger" role="alert">
-              User already exist by this email! Try with another email!
-            </div>
-            }
             <CCard className="mx-4">
+              {validation && <div className="alert alert-danger" role="alert">
+                User already exist by this User Name! Try with another email!
+              </div>
+              }
               <CCardBody className="p-4">
                 <form>
                   <h1>Admin Registration</h1>
@@ -62,6 +80,7 @@ const AdminRegister = () => {
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
                     <CFormInput
+                      onChange={onChange}
                       name='username'
                       placeholder="Username"
                       autoComplete="username"
@@ -73,7 +92,8 @@ const AdminRegister = () => {
                       <CIcon icon={cilLockLocked} />
                     </CInputGroupText>
                     <CFormInput
-                    type='password'
+                      onChange={onChange}
+                      type='password'
                       name='password'
                       placeholder="Password"
                       autoComplete="username"
