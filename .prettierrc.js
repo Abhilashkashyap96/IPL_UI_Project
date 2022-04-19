@@ -3,9 +3,7 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": [
-        "plugin:@typescript-eslint/recommended"
-    ],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react/recommended", "plugin:jest/recommended", "prettier", "prettier/@typescript-eslint"],
     "parser": ["@typescript-eslint/parser", "babel-eslint"],
     "plugins": ["@typescript-eslint", "prettier"],
     "globals": {

@@ -1,24 +1,6 @@
-import React from 'react'
-import CIcon from '@coreui/icons-react'
-import {
-    cilBell,
-    cilCalculator,
-    cilChartPie,
-    cilCursor,
-    cilDrop,
-    cilNotes,
-    cilPencil,
-    cilPuzzle,
-    cilSpeedometer,
-    cilStar,
-} from '@coreui/icons'
-import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+import { CNavItem, } from '@coreui/react'
 
-const admin_nav = [{
-        component: CNavItem,
-        name: 'Create Tournament',
-        to: '/create-tournament'
-    },
+const admin_nav = [
     {
         component: CNavItem,
         name: 'Create Teams',
@@ -28,11 +10,6 @@ const admin_nav = [{
         component: CNavItem,
         name: 'Schedule Match',
         to: '/schedule-match'
-    },
-    {
-        component: CNavItem,
-        name: 'Update Teams',
-        to: '/update-teams'
     },
     {
         component: CNavItem,

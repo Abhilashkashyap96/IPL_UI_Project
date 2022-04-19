@@ -4,7 +4,6 @@ import { CContainer, CSpinner } from '@coreui/react'
 
 // routes config
 // import routes from '../routes'
-import CancelBid from 'src/views/user_pages/CancelBid'
 import CreateBid from 'src/views/user_pages/CreateBid'
 import MatchDetails from 'src/views/user_pages/MatchDetails'
 import MatchSchedule from 'src/views/user_pages/MatchSchedule'
@@ -15,8 +14,6 @@ const UserAppContent = () => {
     const showContent = () => {
         if(window.location.href === "http://localhost:3000/user-home-page"){
           return <CreateBid />
-        }else if(window.location.href === "http://localhost:3000/user-home-page/cancel-bid"){
-          return <CancelBid />
         }else if(window.location.href === "http://localhost:3000/user-home-page/match-details"){
           return <MatchDetails />
         }else if(window.location.href === "http://localhost:3000/user-home-page/match-schedule"){

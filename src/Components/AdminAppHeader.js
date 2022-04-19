@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   CContainer,
@@ -13,14 +13,20 @@ import {
   CButton
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilBell, cilEnvelopeOpen, cilList, cilMenu } from '@coreui/icons'
+import { cilMenu } from '@coreui/icons'
 
-import { AppBreadcrumb } from './index'
 import { logo } from 'src/assets/brand/logo'
 
 const AdminAppHeader = () => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
+  let localData = JSON.parse(localStorage.getItem('adminInfo'))
+  let navigate = useNavigate();
+
+  const logOut = () => {
+    localStorage.clear()
+    navigate('/admin-login', { replace: true })
+  }
 
   return (
     <CHeader position="sticky" className="mb-4">
@@ -41,9 +47,9 @@ const AdminAppHeader = () => {
             </CNavLink>
           </CNavItem>
         </CHeaderNav>
-        <CHeaderNav className="ms-3">
-          <h4 className='mr-3'>Welcome Admin</h4>
-          <CButton color="secondary" variant="outline">Logout</CButton>
+        <CHeaderNav className="me-5">
+          <h5 className='me-3'>Welcome {localData.username}</h5>
+          <CButton color="secondary" onClick={logOut} className='btn-sm' variant="outline">Logout</CButton>
         </CHeaderNav>
       </CContainer>
     </CHeader>

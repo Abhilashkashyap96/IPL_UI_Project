@@ -14,16 +14,23 @@ import {
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
-const user_nav = [{
+const user_nav = [
+    {
+        component: CNavItem,
+        name: 'Team Leader Board',
+        to: '/team-leader-board'
+    },
+    {
+        
+        component: CNavItem,
+        name: 'Team Details',
+        to: '/team-details'
+    },
+    {
 
         component: CNavItem,
         name: 'Create Bid',
         to: '/create-bid'
-    },
-    {
-        component: CNavItem,
-        name: 'Cancel Bid',
-        to: '/cancel-bid'
     },
     {
         component: CNavItem,
@@ -35,11 +42,6 @@ const user_nav = [{
         name: 'Match Schedule',
         to: '/match-schedule'
     },
-    {
-        component: CNavItem,
-        name: 'Team Leader Board',
-        to: '/team-leader-board'
-    }
 ]
 
 export default user_nav

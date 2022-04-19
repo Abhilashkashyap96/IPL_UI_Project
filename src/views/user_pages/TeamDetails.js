@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { UserAppSidebar, UserAppHeader } from '../../Components/index'
 
-const TeamLeaderBoard = () => {
+const TeamDetails = () => {
   const [data, setData] = useState([]);
 
   const getData = () => {
-    fetch('http://localhost:8080/user/view_leader_board_team', {
+    fetch('http://localhost:8080/user/show-team', {
       method: "GET"
     }).then((response) => {
       if (response.ok) {
@@ -28,28 +28,26 @@ const TeamLeaderBoard = () => {
       <UserAppHeader />
       <div className="body px-3">
         <div className='container'>
-          <h1>Team Leader Board</h1>
+          <h1>Team Details</h1>
           <table className="table table-dark table-striped">
                   <thead>
                     <tr>
-                      <th scope="col">Team name</th>
-                      <th scope="col">Matches played</th>
-                      <th scope="col">Matches won</th>
-                      <th scope="col">Matches lost</th>
-                      <th scope="col">Matches drawn</th>
-                      <th scope="col">Points</th>
+                      <th scope="col">Match Id</th>
+                      <th scope="col">Team Name</th>
+                      <th scope="col">Home Ground</th>
+                      <th scope="col">Team Players</th>
+                      <th scope="col">Captain</th>
                     </tr>
                   </thead>
                   <tbody>
                   {data.map((data, i) => {
                       return (
                         <tr key={i}>
-                          <th scope="row">{data.team_name}</th>
-                          <td>{data.matches_played}</td>
-                          <td>{data.matches_won}</td>
-                          <td>{data.matches_lost}</td>
-                          <td>{data.match_drawn}</td>
-                          <td>{data.points}</td>
+                          <th scope="row">{data.match_id}</th>
+                          <td>{data.team_name}</td>
+                          <td>{data.home_ground}</td>
+                          <td>{data.team_players}</td>
+                          <td>{data.captain}</td>
                         </tr>
                       )
                     })
@@ -63,4 +61,4 @@ const TeamLeaderBoard = () => {
   )
 }
 
-export default TeamLeaderBoard
+export default TeamDetails

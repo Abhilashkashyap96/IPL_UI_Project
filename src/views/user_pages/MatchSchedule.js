@@ -1,58 +1,76 @@
-import React from 'react'
-import { UserAppContent, UserAppSidebar, AppFooter, UserAppHeader } from '../../Components/index'
-import { CInputGroup,CInputGroupText,CFormInput ,CFormLabel,CFormTextarea, CForm,CButton,CCard, CCardBody} from '@coreui/react'
+import React, { useEffect, useState } from 'react'
+import { UserAppSidebar, UserAppHeader } from '../../Components/index'
+import { CCard, CCardBody } from '@coreui/react'
+import SimpleDateTime from 'react-simple-timestamp-to-date';
 
 
 const MatchSchedule = () => {
+  const [data, setData] = useState([]);
+
+  const getData = () => {
+    fetch('http://localhost:8080/user/matches-schedule', {
+      method: "GET"
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then((result) => {
+          console.log(result)
+          setData(result)
+        })
+      }
+    })
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <div>
-    <UserAppSidebar />
-    <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-      <UserAppHeader />
-      <div className="body px-3">
-        <div className=' d-flex justify-content-center mt-6 container'>
-          <CCard style={{ width: '30rem ' }}>
-            <CCardBody>
-            <h1>Match Schedule</h1>
+      <UserAppSidebar />
+      <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+        <UserAppHeader />
+        <div className="body px-3">
+          <div className=' d-flex justify-content-center mt-6 container'>
+            <CCard style={{ width: '80rem ' }}>
+              <CCardBody>
+                <h1>Match Schedule</h1>
 
-            <CFormLabel>Match id</CFormLabel>
-            <CInputGroup className="mb-3">
-              <CFormInput placeholder="Match id:" />
-            </CInputGroup>
+                <table className="table table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Match Id</th>
+                      <th scope="col">Team 1-Id</th>
+                      <th scope="col">Team 2-Id</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Start Time</th>
+                      <th scope="col">End Time</th>
+                      <th scope="col">Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((data, i) => {
+                      return (
+                        <tr key={i}>
+                          <th scope="row">{data.match_id}</th>
+                          <td>{data.teamdetails}</td>
+                          <td>{data.teamdetails2}</td>
+                          <td><SimpleDateTime dateFormat="DMY" dateSeparator="-" showTime="0">{data.match_date}</SimpleDateTime></td>
+                          <td>{data.start_time}</td>
+                          <td>{data.end_time}</td>
+                          <td>{data.result}</td>
+                        </tr>
+                      )
+                    })
+                    }
+                  </tbody>
+                </table>
 
-            <CFormLabel> Team 1</CFormLabel>    
-            <CInputGroup className="mb-3">
-              <CFormInput placeholder="Team 1:" aria-label="Team 1:" aria-describedby="basic-addon1"/>
-            </CInputGroup>
-
-            <CFormLabel> Team 2</CFormLabel>
-            <CInputGroup className="mb-3">
-              <CFormInput placeholder="Team 2:" aria-label="Team 2:" aria-describedby="basic-addon1"/>
-            </CInputGroup>
-
-            <CFormLabel> Start time</CFormLabel>
-            <CInputGroup className="mb-3">
-              <CFormInput placeholder="Start time:" aria-label="Start time:" aria-describedby="basic-addon1"/>
-            </CInputGroup>
-
-            <CFormLabel> End time</CFormLabel>
-            <CInputGroup className="mb-3">
-              <CFormInput placeholder="End time:" aria-label="End time:" aria-describedby="basic-addon1"/>
-            </CInputGroup>
-
-            <CFormLabel> Result</CFormLabel>
-            <CInputGroup className="mb-3">
-              <CFormInput placeholder="Result:" label="Result:" aria-describedby="basic-addon1"/>
-            </CInputGroup>
-
-            <CButton color="primary"  style={{width:'100%'}}>Bid now</CButton>
-            
-            </CCardBody>
-          </CCard>
+              </CCardBody>
+            </CCard>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   )
 }
 
